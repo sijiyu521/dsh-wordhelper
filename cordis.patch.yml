@@ -1,0 +1,12 @@
+# dsh-wordhelper —— 划词助手 bundle patch
+#
+# 这是插件的「挂载声明」：DSH 启动时按 bundle 层栈叠加各插件 patch，
+# 本文件把划词助手插入 Web profile 的配置树。
+#
+# 安装方式（profile 内本地链接开发）：
+#   dsh plugin --profile desktop add link:<本目录绝对路径>
+# 或在本会话里用 plugin_manager 的 install_bundle 安装 link: 规格。
+
+- insert:
+    - id: dsh-wordhelper
+      name: dsh-wordhelper
