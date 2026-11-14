@@ -1,0 +1,13 @@
+# 依赖与构建产物
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+
+# 开发期解包资料、实验脚本与测试环境（不进仓库）
+.tmp/
+
+# 日志与临时文件
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
