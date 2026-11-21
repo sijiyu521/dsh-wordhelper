@@ -43,6 +43,10 @@ dsh plugin --profile desktop add link:C:\Users\Jack\git\dsh-wordhelper
 也可以直接按 <kbd>Ctrl</kbd>+<kbd>C</kbd>：复制的同时浮条会出来。
 浮条、面板内部的选中不会触发浮条。
 
+浮条挂在 `document.body` 的 portal 里（不受主框架 transform / overflow 影响）；
+选区量不出坐标时会退回鼠标位置。面板右上角的「预览浮条」可以让它在屏幕中间演示一次，
+用来确认浮条本身能不能弹出来。
+
 ### 2. 全电脑划词
 
 打开「划词助手」面板 → 「全电脑划词」开关打开。
