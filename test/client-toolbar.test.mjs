@@ -162,6 +162,15 @@ test("划词浮条：注册齐全、预览与真实划选都能弹到 body 上",
   const style = document.querySelector(".wh-floater").getAttribute("style") ?? "";
   assert.match(style, /left:\s*\d/, "浮条应该带计算出来的 left");
 
+  // 5) 宿主在 pointerup 之后立刻把选区清掉（真实页面里很常见）：浮条仍然要出现
+  document.body.dispatchEvent(new dom.window.Event("mousedown", { bubbles: true }));
+  await wait(40);
+  const paragraph2 = selectText("复制之后也要弹出来", { left: 260, top: 360, width: 160, height: 20, right: 420, bottom: 380 });
+  paragraph2.dispatchEvent(new dom.window.Event("pointerup", { bubbles: true }));
+  dom.window.getSelection().removeAllRanges();
+  await wait(150);
+  assert.ok(document.querySelector(".wh-bar"), "宿主清掉选区之后浮条也应该还在");
+
   reactRoot.unmount();
   await wait(20);
 });
